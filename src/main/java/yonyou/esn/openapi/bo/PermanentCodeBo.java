@@ -1,5 +1,7 @@
 package yonyou.esn.openapi.bo;
 
+import java.util.Date;
+
 /**
  * Created by mantantan on 2018/1/19.
  */
@@ -8,6 +10,7 @@ public class PermanentCodeBo {
     private String qzId;
     private String suiteKey;
     private String permanentCode;
+    private Date createTime;
 
     public PermanentCodeBo(String qzId, String suiteKey, String permanentCode){
         this.qzId = qzId;
@@ -49,5 +52,13 @@ public class PermanentCodeBo {
 
     public void setPermanentCode(String permanentCode) {
         this.permanentCode = permanentCode;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }
