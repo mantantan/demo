@@ -10,7 +10,7 @@ target/
 .springBeans
 
 ### IntelliJ IDEA ###
-application.properties
+local_application.properties
 .idea
 *.iws
 *.iml
