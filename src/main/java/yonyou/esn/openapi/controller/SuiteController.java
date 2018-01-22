@@ -11,7 +11,6 @@ import yonyou.esn.openapi.configrations.SuiteConfig;
 import yonyou.esn.openapi.enums.PushType;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
-
 import static yonyou.esn.openapi.common.ConstantValue.*;
 
 /**
@@ -34,10 +33,10 @@ public class SuiteController {
     /**
      * 模拟服务端接收ticket
      * @param httpServletRequest
-     * @param msgSignature
-     * @param timestamp
-     * @param nonce
-     * @param encrypt
+     * @param msgSignature 签名
+     * @param timestamp 时间戳
+     * @param nonce  随机数
+     * @param encrypt 加密数据
      * @return
      */
     @PostMapping("/open_api_push")
@@ -62,8 +61,8 @@ public class SuiteController {
             //如果推送的是临时授权码则进行授权动作
             //授权过程:   suite_token-->临时授权码-->永久授权码
             //suiteKey+suiteSecret+suiteTicket --> suiteToken
-            //suiteToken+suiteKey+tempCode --> permanentCode
             String suiteAccessToken = authAppSuiteService.getSuiteAccessToken(authAppSuiteService.getSuiteTicket());
+            //suiteToken+suiteKey+tempCode --> permanentCode
             String permanentCode = authAppSuiteService.getPermanentCode(suiteAccessToken, tempCode);
             PermanentCodeBo permanentCodeBo = new PermanentCodeBo(qzId, suiteConfig.suiteKey, permanentCode);
             authAppSuiteService.savePermanentCode(permanentCodeBo);
@@ -73,12 +72,15 @@ public class SuiteController {
 
     /**
      * 获取qz的访问token，建议使用缓存失效策略，减少开放平台压力和isv压力
-     * @param qzId
+     * @param qzId  空间id
      * @return
      */
     @GetMapping("/get_qz_access_token")
+    @ResponseBody
     public String getQzAccessToken( @RequestParam("qz_id") String qzId){
+        //suite_id,suite_secret,suite_ticket==>suiteAccessToken
         String suiteAccessToken = authAppSuiteService.getSuiteAccessToken(authAppSuiteService.getSuiteTicket());
+        //suiteToken+suiteKey+tempCode --> permanentCode
         String permanentCode = authAppSuiteService.getNativePermanentCode(qzId);
         return authAppSuiteService.getAccessToken(suiteAccessToken,  permanentCode);
     }

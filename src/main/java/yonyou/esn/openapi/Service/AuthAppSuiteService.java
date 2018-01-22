@@ -120,8 +120,8 @@ public class AuthAppSuiteService {
             return null;
         } else {
             accessToken = JSONObject.parseObject(data).getString("access_token");
-            String expiresIn = JSONObject.parseObject(data).getString("expires_in");
-            LOG.info("已获得空间访问令牌=" + accessToken + ",有效时间是" + (Integer.parseInt(expiresIn) / 60 / 60) + "小时");
+            Long expiresIn = JSONObject.parseObject(data).getLongValue("expires_in");
+            LOG.info("已获得空间访问令牌=" + accessToken + ",有效时间是" + (expiresIn / 60 / 60) + "小时");
             return accessToken;
         }
     }

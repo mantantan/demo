@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import yonyou.esn.openapi.service.AuthSelfAppService;
 
 /**
@@ -22,7 +21,7 @@ public class SelfAppController {
     private AuthSelfAppService authSelfAppService;
 
     /**
-     * 获取空间的接口访问令牌(access_token),即第三方开发者拿此访问空间接口
+     * 获取空间的接口访问令牌(access_token),即第三方开发者拿此token作为参数访问空间提供的接口
      * 建议使用缓冲存储令牌
      * @return
      */
