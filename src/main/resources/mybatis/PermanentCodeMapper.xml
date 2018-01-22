@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mapper.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yonyou.esn.openapi.mapper.PermanentCodeMapper">
+    <resultMap id="permanentCodeResultMap" type="PermanentCodeBo">
+        <id column="id" property="id"/>
+        <result property="suiteKey" column="suite_key"/>
+        <result property="qzId" column="qz_id"/>
+        <result property="permanentCode" column="permanent_code"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+    <select id="get"  resultMap="permanentCodeResultMap" resultType ="PermanentCodeBo">
+        SELECT *
+        FROM tb_permanent_code
+    </select>
+
+    <insert id="insert" parameterType="PermanentCodeBo" useGeneratedKeys="true" keyProperty="id">
+       INSERT INTO tb_permanent_code (suite_key, qz_id, permanent_code, create_time)
+        VALUES (#{suiteKey}, #{qzId}, #{permanentCode}, now())
+    </insert>
+
+</mapper>
