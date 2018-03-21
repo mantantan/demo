@@ -1,0 +1,8 @@
+CREATE TABLE `tb_permanent_code` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `suite_key` varchar(255)  DEFAULT NULL,
+  `qz_id` varchar(255) DEFAULT NULL,
+  `permanent_code` varchar(255) DEFAULT NULL,
+  `create_time` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARSET=utf8;
