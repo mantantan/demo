@@ -1,9 +1,0 @@
-2018-01-19 18:25:46.575 [main] INFO  o.s.w.s.h.HandlerInterceptorAdapter -<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xml>
-    <AuthCropId>111065</AuthCropId>
-    <InfoType>authorized</InfoType>
-    <SuitedId>8fa57251-22f2-4094-a513-50ec568a2170</SuitedId>
-    <AuthorizationCode>b8e1fddacb30e9951d1435d8c5a0995e051d74d2171c8347caa5803493d29c02</AuthorizationCode>
-    <TimeStamp>1516346177832</TimeStamp>
-</xml>
-
