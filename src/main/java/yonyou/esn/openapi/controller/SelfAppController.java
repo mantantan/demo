@@ -22,7 +22,7 @@ public class SelfAppController {
 
     /**
      * 获取空间的接口访问令牌(access_token),即第三方开发者拿此token作为参数访问空间提供的接口
-     * 建议使用缓冲存储令牌
+     * 建议使用缓存存储令牌
      * @return
      */
     @GetMapping("/get_access_token")
