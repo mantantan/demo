@@ -62,9 +62,9 @@ public class AuthAppSuiteService {
     public String getSuiteAccessToken(String suiteTicket) {
         String url = authBasePath + "/get_suite_token";
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("suite_id", suiteConfig.suiteKey);
-        jsonObject.put("suite_secret", suiteConfig.suiteSecret);
-        jsonObject.put("suite_ticket", suiteTicket);
+        jsonObject.put("suiteKey", suiteConfig.suiteKey);
+        jsonObject.put("suiteSecret", suiteConfig.suiteSecret);
+        jsonObject.put("suiteTicket", suiteTicket);
         String back = HttpReq.postBody(url, jsonObject.toJSONString());
         JSONObject jsonObjec1t = JSONObject.parseObject(back);
         String data = jsonObjec1t.getString("data");
@@ -86,10 +86,10 @@ public class AuthAppSuiteService {
      * @return
      */
     public String getPermanentCode(String suite_access_token, String tempCode) {
-        String url = authBasePath + "/get_permanent_code?suite_token=" + suite_access_token;
+        String url = authBasePath + "/auth/get_permanent_code?suite_token=" + suite_access_token;
         JSONObject jsObj = new JSONObject();
-        jsObj.put("suite_id", suiteConfig.suiteKey);
-        jsObj.put("auth_code", tempCode);
+        jsObj.put("suiteKey", suiteConfig.suiteKey);
+        jsObj.put("tmpAuthCode", tempCode);
         String backData = HttpReq.postBody(url, jsObj.toJSONString());
         JSONObject backDataObj = JSONObject.parseObject(backData);
         String data = backDataObj.getString("data");
@@ -98,7 +98,7 @@ public class AuthAppSuiteService {
             LOG.error("获得永久授权码失败,请求参数suite_id=" + suiteConfig.suiteKey + ",auth_code=" + tempCode + ",token=" + suite_access_token + ";返回结果=" + backDataObj);
             throw new BizException(CodeEnum.C_90004);
         } else {
-            permenentCode = JSONObject.parseObject(data).getString("permanent_code");
+            permenentCode = JSONObject.parseObject(data).getString("permanentCode");
             String qzId = JSONObject.parseObject(data).getString("qzId");
             String qzName = JSONObject.parseObject(data).getString("qzName");
             LOG.info("空间名称=" + qzName + ",空间Id=" + qzId + "的永久授权码=" + permenentCode);

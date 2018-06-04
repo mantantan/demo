@@ -8,5 +8,5 @@ public class ConstantValue {
     public static String KEY_INFO_TYPE = "InfoType";
     public static String KEY_SUITE_TICKET= "SuiteTicket";
     public static String KEY_AUTH_CODE = "AuthorizationCode";
-    public static String KEY_AUTH_CROP_ID = "AuthCropId";
+    public static String KEY_AUTH_CROP_ID = "AuthCorpId";
 }
