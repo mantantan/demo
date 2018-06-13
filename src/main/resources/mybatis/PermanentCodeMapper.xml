@@ -12,6 +12,7 @@
     <select id="get"  resultMap="permanentCodeResultMap" resultType ="PermanentCodeBo">
         SELECT *
         FROM tb_permanent_code
+        WHERE qz_id=#{qzId}
     </select>
 
     <insert id="insert" parameterType="PermanentCodeBo" useGeneratedKeys="true" keyProperty="id">
