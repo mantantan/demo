@@ -26,6 +26,7 @@ public class PermanentCodeService {
      * @return
      */
     public int savePermanentCode(PermanentCodeBo permanentCodeBo){
+        permanentCodeMapper.deleteByParams(permanentCodeBo.getSuiteKey(),permanentCodeBo.getQzId());
         return permanentCodeMapper.insert(permanentCodeBo);
     }
 }

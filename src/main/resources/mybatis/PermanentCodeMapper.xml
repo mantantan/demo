@@ -11,12 +11,17 @@
 
     <select id="get"  resultMap="permanentCodeResultMap" resultType ="PermanentCodeBo">
         SELECT *
-        FROM tb_permanent_code
+        FROM tb_permanent_code1
     </select>
 
     <insert id="insert" parameterType="PermanentCodeBo" useGeneratedKeys="true" keyProperty="id">
-       INSERT INTO tb_permanent_code (suite_key, qz_id, permanent_code, create_time)
+       INSERT INTO tb_permanent_code1 (suite_key, qz_id, permanent_code, create_time)
         VALUES (#{suiteKey}, #{qzId}, #{permanentCode}, now())
     </insert>
+    
+    <delete id="deleteByParams">
+        DELETE FROM tb_permanent_code1
+        WHERE suite_key=#{suiteKey} AND qz_id=#{qzId}
+    </delete>
 
 </mapper>

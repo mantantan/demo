@@ -75,6 +75,7 @@ public class AuthAppSuiteService {
         } else {
             suite_token = JSONObject.parseObject(data).getString("suite_access_token");
         }
+        LOG.info("获取得suite_access_token是："+suite_token);
         return suite_token;
     }
 

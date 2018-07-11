@@ -46,6 +46,7 @@ public class SuiteController {
                                @RequestParam("timestamp") String timestamp,
                                @RequestParam("nonce") String nonce,
                                @RequestParam("encrypt") String encrypt) {
+        encrypt=encrypt.replace("%2B","+");
         OpenApiPush openApiPush = new OpenApiPush(msgSignature, timestamp, nonce, encrypt);
         Map<String, String> dataMap = authAppSuiteService.decodeData(openApiPush);
         String ticketType = dataMap.get(KEY_INFO_TYPE);
