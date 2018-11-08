@@ -13,11 +13,17 @@
         SELECT *
         FROM tb_permanent_code
         WHERE qz_id=#{qzId}
+
     </select>
 
     <insert id="insert" parameterType="PermanentCodeBo" useGeneratedKeys="true" keyProperty="id">
        INSERT INTO tb_permanent_code (suite_key, qz_id, permanent_code, create_time)
         VALUES (#{suiteKey}, #{qzId}, #{permanentCode}, now())
     </insert>
+    
+    <delete id="deleteByParams">
+        DELETE FROM tb_permanent_code
+        WHERE suite_key=#{suiteKey} AND qz_id=#{qzId}
+    </delete>
 
 </mapper>
