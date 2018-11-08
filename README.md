@@ -9,7 +9,7 @@ https://ec.yonyoucloud.com/
 详细接入请参考开放平台文档中心
 ```
 // 文档中心地址
-https://open.yonyoucloud.com/doc?id=263e0eddcf100759eaeaa61827ba02cf
+https://open.yonyoucloud.com/developer/doc?id=263e0eddcf100759eaeaa61827ba02cf
 // 在线接口调试地址
 http://open.upesn.com/debugger/demo.html
 ```
